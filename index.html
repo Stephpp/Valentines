@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPORTANT POOKIE POLL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- import anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        * {
+            font-family: "Sour Gummy", serif;
+        }
+        body {
+            background-color: rgb(255, 189, 216);
+            overflow: hidden; /* Prevent scrollbars when button moves */
+        }
+        .first-slide, .second-slide {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 750px;
+            max-width: 100%;
+            padding-inline: 30px;
+            margin: auto;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition-delay: 1s;
+            transition: 0.6s ease-in-out;
+            &.hidden {
+                transition-delay: 0s;
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        p {
+            font-size: 20px;
+            margin-bottom: 100px;
+            text-align: center;
+        }
+        .button-wrapper {
+            display: flex;
+            gap: 20px;
+        }
+        .button {
+            border: unset;
+            color: white;
+            padding: 10px 20px;
+            font-size: 40px;
+            cursor: pointer;
+            &.button-yes {
+                background-color: rgb(66, 170, 66);
+                position: absolute;
+                left: 50%;
+                transform: translateX(-120%);
+            }
+            &.button-no {
+                background-color: rgb(230, 76, 76);
+                position: absolute;
+            }
+        }
+
+        .second-slide {
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.6s ease-in-out;
+            &.active {
+                opacity: 1;
+                pointer-events: unset;
+                transition-delay: 1s;
+            }
+            img {
+                height: 300px;
+            }
+            p {
+                text-align: center;
+                max-width: 600px;
+            }
+            .reverse-seal {
+                display: inline-block;
+                transform: scale(-1, 1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="first-slide">
+        <h1>hei pookie</h1>
+        <h2>Asking a bit late but would you perhaps like to be my valentine?<br>You, me, various romantic activities ;)</h2>
+        <p>please answer HONESTLY with a yes or a no</p>
+        <div class="button-wrapper">
+            <button class="button button-yes">YES</button>
+            <button class="button button-no">NO</button>
+        </div>
+    </div>
+    <div class="second-slide">
+        <img src="./c5i6czypyir81.gif" alt="korby">
+        <h1>FOR SOME REASON I WAS SURE YOU'D SAY YES</h1>
+        <p>!!!! you're my valentine now 🥰. Let me know if you have a place in mind otherwise I'll proceed with the necessary arrangements. Have a great night my dearest <span class="reverse-seal">🦭</span>💞🦭</p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttonYes = document.querySelector(".button-yes");
+            buttonYes.addEventListener("click", () => {
+                document.querySelector(".first-slide").classList.add("hidden");
+                document.querySelector(".second-slide").classList.add("active");
+            });
+            const button = document.querySelector(".button-no");
+
+            const animateMove = (element, prop, pixels) =>
+            anime({
+                targets: element,
+                [prop]: `${pixels}px`,
+                easing: "easeOutCirc",
+                duration: 500 // added duration for smoother animation
+            });
+
+            ["mouseover", "click"].forEach(function (el) {
+            button.addEventListener(el, function (event) {
+                const maxX = window.innerWidth - this.offsetWidth - 500;
+                const maxY = window.innerHeight - this.offsetHeight - 500;
+
+                const top = getRandomNumber(maxY);
+                const left = getRandomNumber(maxX);
+
+                animateMove(this, "left", left).play();
+                animateMove(this, "top", top).play();
+            });
+            });
+
+            const getRandomNumber = (num) => {
+                return Math.floor(Math.random() * (num + 1));
+            };
+
+        });
+
+
+    </script>
+</body>
+</html>
