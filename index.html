@@ -14,7 +14,7 @@
       --bg-green: #e9f6e5;
       --bg-pink: #ffe6f0;
 
-      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-bg: #F2EBD7;
 
       --text-main: #2f3e34;
       --text-soft: #5f6f65;
@@ -39,21 +39,21 @@
 
     body {
       overflow: hidden;
-      min-height: 100vh;
+      min-height: 100svh;
       background: #6e2020;
       color: var(--text-main);
     }
 
     .viewport {
       width: 200vw;
-      height: 100vh;
+      height: 100svh;
       display: flex;
       transition: transform 1s ease;
     }
 
     .screen {
       width: 100vw;
-      height: 100vh;
+      height: 100svh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -83,7 +83,6 @@
 
     h1 {
       font-size: 18px;
-      line-height: 1.7;
       font-weight: 500;
       margin-bottom: 2.5rem;
       color: var(--text-main);
@@ -125,7 +124,6 @@
 
     .second-message {
       font-size: 1.2rem;
-      line-height: 1.8;
       font-weight: 500;
       color: var(--text-main);
     }
@@ -178,19 +176,42 @@
     }
 
     .letter {
-      background: var(--card-bg);
-      padding: 2.5rem 3rem;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      font-size: 1.1rem;
-      font-weight: 500;
       text-align: center;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
 
+    .letter img {
+      max-width: 80%;
+      width: 450px;
+    }
+
     .letter:hover {
       transform: scale(1.05);
+    }
+
+    button {
+      outline: none !important;
+      user-select: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    button:focus {
+      outline: none !important;
+      user-select: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    button:active {
+      outline: none !important;
+      user-select: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    button:focus-visible {
+      outline: none !important;
+      user-select: none !important;
+      -webkit-tap-highlight-color: transparent !important;
     }
 
   </style>
@@ -199,11 +220,7 @@
 
   <div class="letter-overlay" id="letterOverlay">
     <div class="letter">
-      <p>
-        Ένα γράμμα για σένα 💌  
-        <br /><br />
-        (πάτα για να ανοίξει)
-      </p>
+      <img src="./assets/letter.png" alt="letter">
     </div>
   </div>
 
@@ -252,7 +269,7 @@
           <br /><br />
           You make me the happiest boy
           <br />
-          <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="love" />
+          <img src="./assets/flower.jpg" alt="love" />
           <br />
           Love you ❤️
         </div>
